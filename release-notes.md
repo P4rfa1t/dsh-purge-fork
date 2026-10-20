@@ -6,8 +6,11 @@
 - 兼容性保留：宿主补丁标记 `[dsh-purge]`、提示词段名前缀 `dsh-purge`、以及 `$DSH_HOME/dsh-purge/` 运行时状态目录保持原样，已打过补丁的宿主不受影响。
 - 提示词段名更新为 `dsh-purge-fork`（同时兼容旧的 `dsh-purge` 段名），面板入口与左栏「清洗」图标保持不变。
 
+- **新增手动安装教程**：`docs/manual-install.md`（中文）与 `docs/manual-install.en.md`（English），说明不依赖 `dsh plugin install` 的完整手动步骤（下载 → 放入 profile → 登记 package.json → 重启并应用 → 验证 / 更新 / 卸载 / 常见问题），并在三份 README 中给出入口。
+
 ## English
 
+- **New manual installation guide**: `docs/manual-install.md` (Chinese) and `docs/manual-install.en.md` (English) walk through installing by hand without `dsh plugin install` (download → copy into the profile → register it in `package.json` → restart and apply → verify / update / uninstall / troubleshooting), linked from all three READMEs.
 - The project is now **dsh-purge-fork**: the package name, plugin id, client resource id, CLI command (`dsh-purge-fork`) and the repository URL all use `dsh-purge-fork`. The old `P4rfa1t/dsh-purge` repository has been deleted.
 - Compatibility kept: the host patch marker `[dsh-purge]`, the `dsh-purge` prompt-section prefix and the `$DSH_HOME/dsh-purge/` runtime state directory are unchanged, so already-patched hosts are unaffected.
 - The prompt section is now named `dsh-purge-fork` (old `dsh-purge` section names are still recognized). The left-sidebar "Clean" glyph is unchanged.
