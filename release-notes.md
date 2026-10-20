@@ -1,3 +1,21 @@
+# 1.1.73
+
+## 中文
+
+- 版本 **1.1.73**。
+- 项目迁移到 [@P4rfa1t/dsh-purge](https://github.com/P4rfa1t/dsh-purge)，实现承接自 YuJunZhiXue/dsh-purge；仓库链接、安装源与 Release 自动化全部指向新仓库。
+- 移除红队演练相关功能与文案：预设、技能、UI、文档一并下线，只保留提示词注入与清洗。
+- 无限制预设（unrestricted）随包提供：`presets/unrestricted.patch.yml` 改为 bundle patch 的一部分，不再依赖已废弃的 `$DSH_HOME/.agent-presets/` 目录。
+- 清理注入类补丁：官方身份句剥离补丁（#4 / #76）删除，身份句保持由用户预设自己决定。
+
+## English
+
+- **1.1.73**.
+- The project now lives at [@P4rfa1t/dsh-purge](https://github.com/P4rfa1t/dsh-purge), continuing the implementation from YuJunZhiXue/dsh-purge. Repository links, install sources and release automation point at the new repo.
+- Red-team exercise features and wording removed: presets, skills, UI and docs are dropped, leaving prompt injection and cleaning only.
+- The unrestricted preset ships with the package: `presets/unrestricted.patch.yml` is now part of the bundle patch and no longer relies on the retired `$DSH_HOME/.agent-presets/` directory.
+- Dropped the identity-stripping injection patches (#4 / #76); the identity line is now decided by your own preset.
+
 # 1.1.71
 
 ## 中文
