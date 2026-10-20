@@ -6,7 +6,7 @@
 
 <h1 align="center">🧪 DeepSeek Harness 提示词注入与清洗工具</h1>
 
-<p align="center"><strong>Version 1.2.0</strong></p>
+<p align="center"><strong>Version 1.2.1</strong></p>
 
 <p align="center">
   <em>把 Harness 的审批门、沙箱和默认提示词拆开看清楚：可换提示词、可调宿主补丁、随包附一个「无限制模式」预设。Prompt injection &amp; host patching for DeepSeek Harness.</em>
@@ -75,6 +75,10 @@ Harness 不只是把问题交给模型。它还会在运行时改提示词、审
 不写死盘符。按 `$DSH_HOME`、dsh 启动器旁边的 `.dsh`，再退回 `~/.dsh`。不改 Harness 源码仓库，在 **dsh-purge-fork** 的「清洗」里点「应用」才写入。身份来自插件里的加密提示词，也就是提示词框默认显示的那一份，不读取宿主磁盘上的提示词文件。
 
 本插件只处理使用者本机已安装的官方 `@deepseek-ai` 包和本机配置。它不是公网扫描器，也不是针对第三方站点的攻击套件。仓库内不含木马、未授权渗透脚本或对外攻击载荷。
+
+---
+
+**手动安装教程**：不想用自动安装流程的话，看 [`docs/manual-install.md`](docs/manual-install.md)（中文）与 [`docs/manual-install.en.md`](docs/manual-install.en.md)（English）。
 
 ---
 

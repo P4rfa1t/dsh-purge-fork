@@ -6,7 +6,7 @@
 
 <h1 align="center">🧪 Prompt injection &amp; host patching for DeepSeek Harness</h1>
 
-<p align="center"><strong>Version 1.2.0</strong></p>
+<p align="center"><strong>Version 1.2.1</strong></p>
 
 <p align="center">
   <em>Take Harness apart: swap the prompt, tune the host patches, and get an "unrestricted" preset in the box. Prompt injection &amp; host patching for DeepSeek Harness.</em>
@@ -75,6 +75,10 @@ Harness does more than hand your question to a model: it rewrites prompts, gates
 No hard-coded paths. It resolves `$DSH_HOME`, then the `.dsh` next to the dsh launcher, then `~/.dsh`. It never touches the Harness source tree; files are written only when you press "Apply" in the dsh-purge-fork panel. The identity line comes from the plugin's own encrypted prompt — the one shown by default in the prompt box — and never from a prompt file on disk.
 
 This plugin only operates on the official `@deepseek-ai` packages and local configuration you installed yourself. It is not a network scanner and not an attack kit for third-party sites. The repository contains no trojans, no unauthorized intrusion scripts and no outbound attack payloads.
+
+---
+
+**Manual installation guide**: if you prefer installing by hand, see [`docs/manual-install.md`](docs/manual-install.md) (Chinese) and [`docs/manual-install.en.md`](docs/manual-install.en.md) (English).
 
 ---
 
