@@ -204,6 +204,6 @@ Check that `$DSH_HOME/prompt-inject.md` is not empty, or pick a rule set in the 
 
 ---
 
-## 10. Credits and license
+## 10. Credits & license
 
-This project builds on [YuJunZhiXue/dsh-purge](https://github.com/YuJunZhiXue/dsh-purge) (original author) and [kingcharleslzy-ai/dsh-purge](https://github.com/kingcharleslzy-ai/dsh-purge) (community fork); this repository is published under the MIT license. If you reuse, adapt or redistribute the code or prompts, please credit the source repositories.
+This project builds on [YuJunZhiXue/dsh-purge](https://github.com/YuJunZhiXue/dsh-purge) (original author); this repository is published under the MIT license. If you reuse, adapt or redistribute the code or prompts, please credit the source repository.

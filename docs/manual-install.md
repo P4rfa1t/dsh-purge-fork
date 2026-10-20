@@ -208,4 +208,4 @@ node "<PROFILE>/node_modules/dsh-purge-fork/bin/dsh-purge-fork.js" --status
 
 ## 10. 致谢与许可
 
-本项目承自 [YuJunZhiXue/dsh-purge](https://github.com/YuJunZhiXue/dsh-purge)（原作者）与 [kingcharleslzy-ai/dsh-purge](https://github.com/kingcharleslzy-ai/dsh-purge)（社区 fork），本仓库以 MIT 发布。引用、改写或再分发本项目的代码与提示词时，请署名并写明来源仓库。
+本项目承自 [YuJunZhiXue/dsh-purge](https://github.com/YuJunZhiXue/dsh-purge)（原作者），本仓库以 MIT 发布。引用、改写或再分发本项目的代码与提示词时，请署名并写明来源仓库。
