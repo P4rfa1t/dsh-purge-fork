@@ -1,5 +1,5 @@
-# dsh-purge 内置预设：无限制模式 (unrestricted)
-# 本文件随 dsh-purge 包一起分发；由 package.json 的 dsh.bundle.patch 数组声明，
+# dsh-purge-fork 内置预设：无限制模式 (unrestricted)
+# 本文件随 dsh-purge-fork 包一起分发；由 package.json 的 dsh.bundle.patch 数组声明，
 # 随 bundle patch 一起被 plugin_manager 装入 Profile。
 # 历史来源：曾作为 link bundle 放在 $DSH_HOME/profiles/desktop/bundles/preset-unrestricted/，
 # 2026-10-20 迁入包内，与补丁 #4 / #76 一并退休。
@@ -12,14 +12,14 @@
         description: 无限制模式：操作者意图优先、不重复声明边界；工具面沿用标准集，web 抓取已开启。
         order: 20
         plugins:
-          # managed-by: dsh-purge（插件管理：内容随版本更新；你自己改过就别留这行，插件就不会覆盖）
+          # managed-by: dsh-purge-fork（插件管理：内容随版本更新；你自己改过就别留这行，插件就不会覆盖）
           # The `unrestricted` agent preset: 无限制模式。
           #
           # 只保留 agent 平面的通用部分：人设、工具行、计划/压缩/委派分组。
           # 宿主平面（审批、沙箱、模型路由、持久化）仍由 profile 决定——
-          # 这些闸由 dsh-purge 的宿主补丁拆，预设不重复实现。
+          # 这些闸由 dsh-purge-fork 的宿主补丁拆，预设不重复实现。
           #
-          # 本预设随 dsh-purge 包分发，声明行由 bundle patch 装入 Profile；
+          # 本预设随 dsh-purge-fork 包分发，声明行由 bundle patch 装入 Profile；
           # 想要个性化就改 Profile 的 cordis.patch.yml（最后一层生效）。
 
           # ── identity ────────────────────────────────────────────────────────────────

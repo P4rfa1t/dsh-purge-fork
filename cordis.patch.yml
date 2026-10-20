@@ -1,7 +1,7 @@
-# dsh-purge bundle patch
+# dsh-purge-fork bundle patch
 #
 # 仅保留清洗功能；预设（unrestricted）随包提供，注入类补丁已移除。
-# 只装 dsh-purge，不外接、不 link 其它包。
+# 只装 dsh-purge-fork，不外接、不 link 其它包。
 
 - id: system-prompt
   config:
@@ -13,12 +13,12 @@
     # 抛 unknown prompt variable。工作目录后缀由插件运行时按真实路径补
     # （lib/identity.js cwdSuffixText）。
 
-- id: dsh-purge
+- id: dsh-purge-fork
   inject: [systemPrompt, tools]
 
 - insert:
-    - id: dsh-purge
-      name: 'dsh-purge'
+    - id: dsh-purge-fork
+      name: 'dsh-purge-fork'
       inject: [systemPrompt, tools]
       config:
         enabled: true

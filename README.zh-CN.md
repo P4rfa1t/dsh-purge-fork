@@ -1,7 +1,7 @@
-# dsh-purge
+# dsh-purge-fork
 
 <p align="center">
-  <img src="docs/banner.svg" alt="dsh-purge" width="720">
+  <img src="docs/banner.svg" alt="dsh-purge-fork" width="720">
 </p>
 
 <h1 align="center">🧪 DeepSeek Harness 提示词注入与清洗工具</h1>
@@ -13,8 +13,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/P4rfa1t/dsh-purge/stargazers"><img src="https://img.shields.io/github/stars/P4rfa1t/dsh-purge?logo=github&label=Stars" alt="GitHub stars"></a>
-  <a href="https://github.com/P4rfa1t/dsh-purge/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-65a30d?style=flat" alt="MIT license"></a>
+  <a href="https://github.com/P4rfa1t/dsh-purge-fork/stargazers"><img src="https://img.shields.io/github/stars/P4rfa1t/dsh-purge-fork?logo=github&label=Stars" alt="GitHub stars"></a>
+  <a href="https://github.com/P4rfa1t/dsh-purge-fork/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-65a30d?style=flat" alt="MIT license"></a>
   <a href="https://awesome-dsh-plugin.com"><img src="https://awesome-dsh-plugin.com/badge.svg" alt="awesome · DSH plugin"></a>
   <a href="https://www.deepseek.com/harness/"><img src="https://img.shields.io/badge/dsh-0.2.1--rc.2-blue" alt="DSH"></a>
   <br>
@@ -36,7 +36,7 @@
 | --- | --- | --- |
 | **小杨同学（YuJunZhiXue）** | 原作者。dsh-purge 的最初实现、宿主补丁体系、提示词注入与面板设计均源自其仓库。 | [YuJunZhiXue/dsh-purge](https://github.com/YuJunZhiXue/dsh-purge) |
 | **kingcharleslzy-ai** | 社区 fork。在上游基础上做了大量工程整理与社区分发。 | [kingcharleslzy-ai/dsh-purge](https://github.com/kingcharleslzy-ai/dsh-purge) |
-| **P4rfa1t** | 本仓库维护者。承接、迁移、去除红队模块、重写文档、随包发布 unrestricted 预设。 | [P4rfa1t/dsh-purge](https://github.com/P4rfa1t/dsh-purge) |
+| **P4rfa1t** | 本仓库维护者。承接、迁移、去除红队模块、重写文档、随包发布 unrestricted 预设。 | [P4rfa1t/dsh-purge-fork](https://github.com/P4rfa1t/dsh-purge-fork) |
 
 **署名要求（沿用上游要求）**：使用本项目的名称、思路、代码或提示词，必须署名并写明来源仓库 —— [YuJunZhiXue/dsh-purge](https://github.com/YuJunZhiXue/dsh-purge)。不署名、隐瞒来源、改头换面据为己有，作者保留追究权利。
 
@@ -48,9 +48,6 @@
 
 - [介绍](#介绍)
 - [1.2.0 变更](#120-变更)
-- [适配范围](#适配范围)
-- [安装](#安装)
-- [界面预览](#界面预览)
 - [使用](#使用)
 - [工作原理](#工作原理)
 - [还原](#还原)
@@ -62,7 +59,9 @@
 
 ## 介绍
 
-**dsh-purge** 是装在本机官方 [DeepSeek Harness](https://www.deepseek.com/harness/) 上的提示词注入与宿主补丁插件。官方 **Web**（`dsh web`）和官方 **桌面端**（EXE）都支持，两边分开装、分开应用。
+**命名说明**：内部的提示词段 id、宿主补丁中的 `[dsh-purge]` 标记以及 `$DSH_HOME` 下的运行时状态目录等内部标识仍保留原名，以兼容已经打过补丁的宿主；而包 / 插件 / 客户端 id、CLI 命令与仓库现已更名为 **dsh-purge-fork**。
+
+**dsh-purge-fork** 是装在本机官方 [DeepSeek Harness](https://www.deepseek.com/harness/) 上的提示词注入与宿主补丁插件。官方 **Web**（`dsh web`）和官方 **桌面端**（EXE）都支持，两边分开装、分开应用。
 
 Harness 不只是把问题交给模型。它还会在运行时改提示词、审批门、沙箱和会话格式。只看「模型答不答」，会把宿主拦截误当成模型拒绝。这个插件在你自己的安装里把这两层分开，用来做受控评测，也用来看默认策略该不该收紧。
 
@@ -73,7 +72,7 @@ Harness 不只是把问题交给模型。它还会在运行时改提示词、审
 | **随包预设** | `presets/unrestricted.patch.yml`：一个「无限制模式」预设，作为 bundle patch 一起装进 profile |
 | **启动时** | 自动再检查并应用。npm 升级盖掉 `node_modules` 之后不用手改文件 |
 
-不写死盘符。按 `$DSH_HOME`、dsh 启动器旁边的 `.dsh`，再退回 `~/.dsh`。不改 Harness 源码仓库，在 **dsh-purge** 的「清洗」里点「应用」才写入。身份来自插件里的加密提示词，也就是提示词框默认显示的那一份，不读取宿主磁盘上的提示词文件。
+不写死盘符。按 `$DSH_HOME`、dsh 启动器旁边的 `.dsh`，再退回 `~/.dsh`。不改 Harness 源码仓库，在 **dsh-purge-fork** 的「清洗」里点「应用」才写入。身份来自插件里的加密提示词，也就是提示词框默认显示的那一份，不读取宿主磁盘上的提示词文件。
 
 本插件只处理使用者本机已安装的官方 `@deepseek-ai` 包和本机配置。它不是公网扫描器，也不是针对第三方站点的攻击套件。仓库内不含木马、未授权渗透脚本或对外攻击载荷。
 
@@ -81,8 +80,8 @@ Harness 不只是把问题交给模型。它还会在运行时改提示词、审
 
 ## 1.2.0 变更
 
-- **删除右下角悬浮按钮**。旧版会在屏幕右下角挂一个固定位置的「dsh-purge」悬浮球（与面板入口重复），1.2.0 移除该入口；左栏「清洗」图标和侧栏面板保持不变。
-- **删除「自己的服务器 / 保存名单」整块功能**。原用于登记例外主机的放行名单（UI、`/dsh-purge/own-servers` 路由、`$DSH_HOME/net-scope-allow.txt` 与相关判定逻辑）已全部移除。地区与银行域名的拦截逻辑保留。
+- **删除右下角悬浮按钮**。旧版会在屏幕右下角挂一个固定位置的「dsh-purge-fork」悬浮球（与面板入口重复），1.2.0 移除该入口；左栏「清洗」图标和侧栏面板保持不变。
+- **删除「自己的服务器 / 保存名单」整块功能**。原用于登记例外主机的放行名单（UI、`/dsh-purge-fork/own-servers` 路由、`$DSH_HOME/net-scope-allow.txt` 与相关判定逻辑）已全部移除。地区与银行域名的拦截逻辑保留。
 - **README 完全重写**。不沿用上游旧文档结构，改为本仓库事实描述，并补上对上游两位作者的致谢与署名声明。
 - **unrestricted 预设随包发布**。`presets/unrestricted.patch.yml` 作为 bundle patch 的一部分装入 profile，不再依赖已废弃的 `$DSH_HOME/.agent-presets/` 目录。
 - **身份句剥离补丁（#4 / #76）删除**。官方身份句是否保留由你自己的预设决定，不再由插件强制清空。
@@ -90,106 +89,15 @@ Harness 不只是把问题交给模型。它还会在运行时改提示词、审
 
 ---
 
-## 适配范围
-
-最新版只支持 **dsh 0.2**，不要拿它去打 0.1.x。
-
-- **dsh 0.2**（官方桌面 **0.2.1-rc.2** / 官方 `dsh web`）：用 **1.1.40** 及以上。本页命令装的就是这一档。
-- **dsh 0.1.7**（含 rc.1 / rc.2）：用 **1.1.39** 及更早 —— 在 [Releases](https://github.com/P4rfa1t/dsh-purge/releases) 里选对应标签。
-
-对不上的补丁会显示待应用或跳过，不会乱改文件。
-
----
-
-## 安装
-
-现在只维护官方 `dsh web` 和官方桌面 EXE，**两边都要装、分开应用**。Web 的包进不了桌面端，桌面端的包也进不了 Web。
-
-**Web（官方 `dsh web`）**
-
-```sh
-dsh plugin --profile web add dsh-purge
-```
-
-**桌面端（官方 EXE）**
-
-```sh
-dsh plugin --profile desktop add dsh-purge
-```
-
-当前目录已经是本仓库时，把包名换成 `add .`。registry 上不去：同一个 `--profile`，把目标换成 `https://github.com/P4rfa1t/dsh-purge/archive/refs/heads/master.tar.gz`。
-
-### 装完都要做这三步
-
-只把插件写进 profile **还不会**改 `@deepseek-ai`。
-
-1. **退出并重新打开**刚装的那个宿主：Web 关掉 `dsh web` 再开；桌面端退出托盘再打开对应 exe。
-2. 在**这个宿主**的左栏点 **清洗** 图标，在 **清洗** 页点 **「应用」**。宿主的设置页里没有这个条目。
-3. 「应用」成功后会自动重启一次，让补丁进入当前进程。没做完不会重启。
-
-Web 的控件只动 Web，桌面端的只动桌面应用。不要在一个宿主里点另一个宿主的应用。
-
-### 怎样算装上了
-
-- 左栏出现 **清洗** 图标，点开后在「清洗」里能点「应用」。
-- 聊天里 `/purge status` 能打出 `DSH_HOME` 和补丁列表，路径应是你正在用的那一份。
-- 没装的可选包（例如梁神）显示跳过，不挡住应用完成。
-
-### 手动安装
-
-命令行装不上、或 `dsh` 不在 PATH 时用这个。只改**正在用的那个宿主**对应的 profile，不要动另一个，也不要删原有 bundle。
-
-1. 找到真正在用的 `$DSH_HOME`：`DSH_HOME` 环境变量 → 安装根旁边的 `.dsh` → `%USERPROFILE%\.dsh` → `%APPDATA%\DeepSeek Harness\dsh-home`。确认 `profiles/web/package.json` 的 `"name"` 是 `dsh-profile-web`（桌面是 `dsh-profile-desktop`）。
-2. 把插件放到 `$DSH_HOME/plugins/dsh-purge`（目录名与 `package.json` 的 `"name"` 都必须是 `dsh-purge`）：
-
-   ```sh
-   git clone https://github.com/P4rfa1t/dsh-purge.git "$DSH_HOME/plugins/dsh-purge"
-   ```
-
-3. 只改对应 profile 的 `package.json`，先备份。**只追加两处**：
-
-   - `dependencies` 增加 `"dsh-purge": "file:../../plugins/dsh-purge"`
-   - `dsh.profile.bundles` **末尾**追加 `"dsh-purge"`
-
-4. 在该 profile 目录里 `pnpm install`。成功标志是 `profiles/<web|desktop>/node_modules/dsh-purge/package.json` 出现。
-5. 完全退出该宿主，再启动，点「应用」。
-
-### 卸载
-
-左栏 **清洗** →「清洗」→「卸载」。弹窗确认：会先还原已应用的补丁，还原回原版 Harness，再重启当前宿主。
-
-```sh
-dsh-purge --uninstall
-# /purge uninstall
-```
-
----
-
-## 界面预览
-
-左栏点 **清洗** 图标打开清洗页。白 / 墨可切换，补丁按组展开，进度只计真正已应用的项。规则集在上方列表启用或删除，下方编辑正文。
-
-![清洗](docs/preview/dock-clean.png)
-
-| 区域 | 说明 |
-| --- | --- |
-| 清洗（页签） | 补丁、提示词、规则集、Skill |
-| 补丁 | 分组查看状态，应用、还原或卸载 |
-| 提示词 | 编辑 `prompt-inject.md`，作为会话覆盖段 |
-| 规则集 | 多套 `AGENTS.md` / `CLAUDE.md`；启用写入 `$DSH_HOME`，删除从列表去掉 |
-| Skill | 导入压缩包或文件夹到当前宿主官方目录 `$DSH_HOME/skills/<id>/SKILL.md`；命中、加载、`/名称` 由 DSH 负责 |
-
----
-
 ## 使用
 
 ```sh
 # CLI
-dsh-purge --status
-dsh-purge --apply
-dsh-purge --revert
-dsh-purge --uninstall
-dsh-purge --edit
+dsh-purge-fork --status
+dsh-purge-fork --apply
+dsh-purge-fork --revert
+dsh-purge-fork --uninstall
+dsh-purge-fork --edit
 
 # 聊天
 /purge status | apply | revert | uninstall | edit | help
@@ -284,7 +192,7 @@ flowchart TD
 
 ## 更新
 
-每一版改了什么、安装包在 [Releases](https://github.com/P4rfa1t/dsh-purge/releases)。发新版时把 `package.json` 的版本号改掉，中英文说明写进 `release-notes.md`，推到 `master` 就会自动打包。同一版本再推送不会重复发包。
+每一版改了什么、安装包在 [Releases](https://github.com/P4rfa1t/dsh-purge-fork/releases)。发新版时把 `package.json` 的版本号改掉，中英文说明写进 `release-notes.md`，推到 `master` 就会自动打包。同一版本再推送不会重复发包。
 
 ---
 
