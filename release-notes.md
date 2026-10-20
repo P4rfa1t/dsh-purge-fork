@@ -1,3 +1,25 @@
+# 1.2.0
+
+## 中文
+
+- 版本 **1.2.0**。
+- 删除右下角悬浮的「dsh-purge」按钮（旧版固定定位的悬浮入口，与面板入口重复）；左栏「清洗」图标与侧栏面板保持不变。
+- 删除「自己的服务器 / 保存名单」整块功能：UI、`/dsh-purge/own-servers` 路由、`$DSH_HOME/net-scope-allow.txt` 与放行判定逻辑一并移除；地区与银行域名拦截逻辑保留。
+- README 完全重写：不沿用上游旧结构，改为本仓库事实描述，并致谢 YuJunZhiXue（原作者）与 kingcharleslzy-ai（社区 fork），同时保留上游署名要求。
+- 「无限制模式」预设随包发布：`presets/unrestricted.patch.yml` 作为 bundle patch 的一部分装入 profile，不再依赖已废弃的 `$DSH_HOME/.agent-presets/` 目录。
+- 删除官方身份句剥离补丁（#4 / #76），身份句是否保留由你自己的预设决定。
+- 截图与文档同步清理：移除 own-servers 界面截图。
+
+## English
+
+- **1.2.0**.
+- Removed the floating "dsh-purge" button pinned to the bottom-right corner (a duplicate of the panel entry). The left-sidebar "Clean" glyph and the side panel are unchanged.
+- Removed the "own servers / save list" feature: UI, the `/dsh-purge/own-servers` route, `$DSH_HOME/net-scope-allow.txt` and the allow-list decision logic are all gone. Region and bank-domain blocking is kept.
+- README fully rewritten: it no longer follows the old upstream structure, describes this repository instead, and credits YuJunZhiXue (original author) and kingcharleslzy-ai (community fork) while keeping upstream's attribution requirement.
+- The "unrestricted mode" preset ships with the package: `presets/unrestricted.patch.yml` is installed as part of the bundle patch and no longer relies on the retired `$DSH_HOME/.agent-presets/` directory.
+- Dropped the official identity-stripping patches (#4 / #76); whether the identity line survives is decided by your own preset.
+- Screenshots and docs cleaned up accordingly: the own-servers preview images were removed.
+
 # 1.1.73
 
 ## 中文
