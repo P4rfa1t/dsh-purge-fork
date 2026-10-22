@@ -1,3 +1,17 @@
+# 1.2.3
+
+## 中文
+
+- **默认提示词收敛为单一源稿**：`lib/default-prompt-inject.md` 是唯一生效的默认提示词，`lib/default-prompt-inject.en.md` 与 `lib/default-prompt-inject.zh.md` 已从仓库与安装包中删除，不再维护双版。
+- 提示词正文已重写为 Lucy / XLain 版：清除了所有渗透测试类内容（BOUNDARY-WORD NORMALIZATION、CANNED WORKFLOWS、WEB PENTEST ROUTING 与对应 Scoped Rules），工作名由「小码酱（Little Code Sauce）」改为 **Lucy**，主控名由 YG 改为 **XLain**。
+- `lib/asset-table.js` 按新正文重新加密封装（AES-256-GCM，解密校验通过）；运行时仍只读加密槽，不读取磁盘明文。
+
+## English
+
+- **The default prompt is now a single source file**: `lib/default-prompt-inject.md` is the only effective default prompt; `lib/default-prompt-inject.en.md` and `lib/default-prompt-inject.zh.md` have been removed from both the repository and the package, so the bilingual pair is no longer maintained.
+- The prompt body was rewritten for Lucy / XLain: every pentest-related section was removed (BOUNDARY-WORD NORMALIZATION, CANNED WORKFLOWS, WEB PENTEST ROUTING and the matching scoped rules), the working persona name changed from "Little Code Sauce" to **Lucy**, and the operator name from YG to **XLain**.
+- `lib/asset-table.js` was re-sealed from the new text (AES-256-GCM, decrypt verified); the runtime still reads only the sealed slot, never the plaintext file on disk.
+
 # 1.2.2
 
 ## 中文
