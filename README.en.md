@@ -6,7 +6,7 @@
 
 <h1 align="center">🧪 Prompt injection &amp; host patching for DeepSeek Harness</h1>
 
-<p align="center"><strong>Version 1.2.1</strong></p>
+<p align="center"><strong>Version 1.2.2</strong></p>
 
 <p align="center">
   <em>Take Harness apart: swap the prompt, pick your host patches, and get an "unrestricted" preset in the box. Prompt injection &amp; host patching for DeepSeek Harness.</em>
@@ -107,12 +107,10 @@ This repository is **not** a mirror or a straight sync of upstream. It is a deli
 ## UI entry points
 
 - **"Clean" glyph in the left sidebar**: opens the full panel — patch groups, prompt injection, rule sets, Skills, hooks bypass, retry/continue, update channel.
-- **Floating panel (dock)**: quick status and common actions during a session.
-- **Small pill next to the hero row** on the home screen: opens/closes the panel.
 - **Next to the composer**: rewind once / rewind previous turn, plus the continue button.
 - **Session opening notice**: a one-time notice with a compliance check.
 
-> There is **no floating ball** in the bottom-right corner (that entry was removed in 1.2.0).
+> There is **no floating ball** in the bottom-right corner (removed in 1.2.0), and **no "Clean" pill** next to the hero row on the home screen (removed in 1.2.2).
 
 ---
 

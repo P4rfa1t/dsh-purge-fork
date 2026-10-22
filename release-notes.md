@@ -1,3 +1,17 @@
+# 1.2.2
+
+## 中文
+
+- **移除首页 hero 行右侧的「清洗」胶囊按钮**（截图箭头所指）。该按钮由 `HeroNewSessionMount` 注入 DOM，1.2.2 起不再挂载，首页只保留宿主自身的模式/预设选择。
+- **移除右侧浮动面板（dock）整条子系统**：随 hero 按钮一起下线后，浮动面板已无任何打开入口，1.2.2 起连同 `PurgeDock` 组件、拖拽/缩放几何状态、`dshp-dock*` 样式与相关文案一并删除。左栏「清洗」图标与整页主面板不受影响。
+- 文档同步：README「界面入口」章节移除上述两个入口的说明；`screenshots.json` 移除 dock 预览图。
+
+## English
+
+- **Removed the "Clean" pill next to the hero row on the home screen** (the button marked by the arrow). It was injected by `HeroNewSessionMount`; since 1.2.2 it is no longer mounted, and the home screen keeps only the host's own mode/preset controls.
+- **Removed the floating dock panel subsystem entirely**: once the hero button is gone the dock had no way to open, so 1.2.2 also drops the `PurgeDock` component, its drag/resize geometry state, the `dshp-dock*` styles and the related strings. The left-sidebar "Clean" glyph and the full-page main panel are unchanged.
+- Docs updated: the README "UI entry points" section no longer lists these two entries, and `screenshots.json` no longer lists the dock preview image.
+
 # 1.2.1
 
 ## 中文

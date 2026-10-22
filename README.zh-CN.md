@@ -6,7 +6,7 @@
 
 <h1 align="center">🧪 DeepSeek Harness 提示词注入与宿主补丁工具</h1>
 
-<p align="center"><strong>Version 1.2.1</strong></p>
+<p align="center"><strong>Version 1.2.2</strong></p>
 
 <p align="center">
   <em>把 Harness 的提示词、审批门、hooks 与桌面宿主行为拆开看清楚：可换提示词、可挑补丁、可随包带一个「无限制模式」预设。Prompt injection &amp; host patching for DeepSeek Harness.</em>
@@ -107,12 +107,10 @@
 ## 界面入口
 
 - **左栏「清洗」图标**：点开是完整面板 —— 补丁分组、提示词注入、规则集、Skill、hooks 放行、重试续写、更新通道。
-- **右侧浮动面板（dock）**：会话内快速查看状态与常用操作。
-- **首页 hero 行的小胶囊**：一键打开/收起面板。
 - **输入框旁**：回退一次 / 回退上一轮、续写按钮。
 - **会话开场提示**：点「检查」走一遍合规自检。
 
-> 屏幕**右下角没有**悬浮球（1.2.0 起已移除该入口）。
+> 屏幕**右下角没有**悬浮球（1.2.0 起已移除该入口），首页 hero 行右侧也**没有**「清洗」胶囊按钮（1.2.2 起已移除）。
 
 ---
 

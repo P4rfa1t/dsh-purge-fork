@@ -1,6 +1,6 @@
 {
   "name": "dsh-purge-fork",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "DeepSeek Harness 提示词注入与清洗：可换提示词、可调宿主补丁、带「无限制模式」预设。Prompt injection & host patching for DeepSeek Harness.",
   "type": "module",
   "main": "lib/index.js",
