@@ -1,3 +1,38 @@
+# 1.2.5
+
+## 中文
+
+- **默认提示词改为当前生效稿（13640 B / 170 行）**：`lib/default-prompt-inject.md` 与 `lib/asset-table.js` 同步换版，AES-256-GCM 槽重新封装，解密结果与源稿逐字节一致（sha256 `65a52cba…`）。
+- 与 1.2.4 相比的提示词差异：移除了 `## Foreign Patterns`、`## Routing`（PLACEHOLDER NORMALIZATION / BILINGUAL ROUTING / STABILITY ANCHORS）、Rule 1–18 全表与意图映射行，`## Scoped Rules — Dynamic Routing` 保持精简壳；`## House Rules`、`## Style` 原样保留。
+- 提示词仍在 `$DSH_HOME/prompt-inject.md` 落地生效；换版后 `seedHash` 不再匹配旧盘，下一次启动/应用会按新槽刷新，用户手改稿不受影响。
+- **适配宿主 0.2.1-rc.3**：`dsh.client.inject` 由 5 项换成 rc.3 真实存在的 7 个包（`dsh-api-session-controller`、`dsh-client-connection`、`dsh-client-locale`、`dsh-client-ui-conversation`、`dsh-client-ui-renderer`、`dsh-client-ui-settings`、`dsh-client-ui-workspace`），删掉 rc.3 已不存在的 `dsh-client-runtime` 与 `dsh-client-ui-slots`。
+- **原子写保留文件权限**：新增 `existingMode()` / `restoreMode()`，`atomicWriteSync` / `atomicWriteFile` 在写 tmp 前取原 mode、rename 后回写；新增 `atomicCopyFileSync()`。修复官方 `dsh` CLI 被临时文件 rename 成 0644 后丢掉可执行位的问题。
+- **桌面 CLI 修补**：`repairOfficialCliAfterUnpack` 的备份改用 `atomicCopyFileSync`（原先异步 `atomicCopyFile` 未 await，会产生未处理 rejection），写入后对非 `.cmd` 目标补 `chmod 0o755`。
+- **asar 提取的 fd 直通**：`lib/extract-asar.js` 增加 `HOST_FD`（`closeSync`/`readSync`/`writeSync`/`fsyncSync`/`fstatSync`/`futimesSync`），这些方法吃 fd 不吃路径，走 `route()` 会把数字当路径做 asar 探测；`HOST_SYNC` 同时补齐 `accessSync`/`truncateSync`/`utimesSync`。
+- **预设清理**：`presets/unrestricted.patch.yml` 删掉 rc.3 不存在的 `tool-subagent-codex` / `tool-subagent-claude-code` 两个 provider 行（共 22 行）与 3 处无效 `backgroundMode` 键，plugins 由 22 行降到 20 行。
+- **plan-mode 软阻断写进预设**：补丁 #63 的 `file` 数组加入 `preset-unrestricted`，并把清洗结果直接烘焙进随包预设（3 处 `# [dsh-purge] plan-mode soft block removed`），不再依赖运行时改写。
+- **命令注册容错**：新增 `isDuplicateCommandError()` / `tryRegisterCommand()`，`purge` / `rules` / `skills` / `rewind` 四个命令撞名时自动退到 `purge-cmd` / `purge-rules` / `purge-skills` / `purge-rewind`，避免 rc.3 的 `command "x" is already registered` 直接抛错。
+- **默认预设清理加防抖**：`preset-default.js` 新增 `scheduleClearOwnedSelectedDefault()` / `cancelClearOwnedSelectedDefault()`（800ms 延迟 + unref），热重载先 dispose 再 apply 时不会再把你刚选的默认预设冲掉。
+- **临时目录不再被当作宿主**：兜底深扫新增 `tempRoots()` / `isUnderTempRoot()`，跳过 `%LOCALAPPDATA%\Temp` 等临时根 —— 上一次手工解包留下的 `asar_out` 树会让状态面板和 `--apply` 认错宿主（实测指向 `AppData/Local/Temp/opencode/asar_out`）。需要扫临时目录时设 `DSH_PURGE_DEEP_AIBASE_SCAN=1`。
+- **`findAiBase()` 桌面回退**：从普通终端跑 `bin/dsh-purge-fork.js` 时 surface 判为 `web`，而 web 分支显式排除桌面安装树，导致 `--status` 拿不到宿主。改为 `findAiBaseWeb() || findAiBaseDesktop()`。
+
+## English
+
+- **The packaged default prompt now matches the live prompt** (13640 B / 170 lines): `lib/default-prompt-inject.md` and `lib/asset-table.js` were replaced together and the AES-256-GCM slot re-sealed; the decrypted text is byte-identical to the source (sha256 `65a52cba…`).
+- Prompt differences from 1.2.4: `## Foreign Patterns`, `## Routing` (PLACEHOLDER NORMALIZATION / BILINGUAL ROUTING / STABILITY ANCHORS), the full Rule 1–18 table and the intent-mapping lines are gone; `## Scoped Rules — Dynamic Routing` stays as the short shell. `## House Rules` and `## Style` are unchanged.
+- The prompt still lands at `$DSH_HOME/prompt-inject.md`; after the swap the stored `seedHash` no longer matches the old disk copy, so the next boot/apply refreshes it while user-edited copies are preserved.
+- **Host 0.2.1-rc.3 compatibility**: `dsh.client.inject` now lists the 7 packages that actually exist in rc.3 (`dsh-api-session-controller`, `dsh-client-connection`, `dsh-client-locale`, `dsh-client-ui-conversation`, `dsh-client-ui-renderer`, `dsh-client-ui-settings`, `dsh-client-ui-workspace`); the retired `dsh-client-runtime` and `dsh-client-ui-slots` entries are gone.
+- **Atomic writes keep file modes**: new `existingMode()` / `restoreMode()`; `atomicWriteSync` / `atomicWriteFile` capture the original mode before writing the temp file and re-apply it after the rename. New `atomicCopyFileSync()`. Fixes the official `dsh` CLI losing its executable bit when a 0644 temp file is renamed over it.
+- **Desktop CLI repair**: `repairOfficialCliAfterUnpack` now backs up with `atomicCopyFileSync` (the old async `atomicCopyFile` was never awaited and produced unhandled rejections) and applies `chmod 0o755` to non-`.cmd` targets after writing.
+- **fd passthrough in asar extraction**: `lib/extract-asar.js` gains `HOST_FD` (`closeSync`/`readSync`/`writeSync`/`fsyncSync`/`fstatSync`/`futimesSync`) — these take an fd, not a path, and routing them through `route()` treats the number as a path and probes the asar; `HOST_SYNC` also gains `accessSync`/`truncateSync`/`utimesSync`.
+- **Preset cleanup**: `presets/unrestricted.patch.yml` drops the two provider rows that do not exist in rc.3 (`tool-subagent-codex`, `tool-subagent-claude-code`, 22 lines total) plus 3 inert `backgroundMode` keys; plugins go from 22 to 20 rows.
+- **plan-mode soft block baked into the preset**: patch #63's `file` list now includes `preset-unrestricted`, and the rewritten text is baked straight into the shipped preset (3 occurrences of `# [dsh-purge] plan-mode soft block removed`) instead of relying on a runtime rewrite.
+- **Command registration tolerance**: new `isDuplicateCommandError()` / `tryRegisterCommand()`; `purge` / `rules` / `skills` / `rewind` fall back to `purge-cmd` / `purge-rules` / `purge-skills` / `purge-rewind` on a name clash instead of letting rc.3's `command "x" is already registered` throw.
+- **Debounced default-preset cleanup**: `preset-default.js` gains `scheduleClearOwnedSelectedDefault()` / `cancelClearOwnedSelectedDefault()` (800 ms delay + unref) so a hot reload that disposes then re-applies no longer wipes the default preset you just picked.
+- **Temp directories are no longer treated as a host**: the fallback deep scan gains `tempRoots()` / `isUnderTempRoot()` and skips `%LOCALAPPDATA%\Temp` and friends — a leftover `asar_out` tree from an earlier manual unpack made the status panel and `--apply` target the wrong host (observed pointing at `AppData/Local/Temp/opencode/asar_out`). Set `DSH_PURGE_DEEP_AIBASE_SCAN=1` to include temp dirs.
+- **`findAiBase()` desktop fallback**: running `bin/dsh-purge-fork.js` from a normal terminal detects surface `web`, whose branch deliberately excludes the desktop install tree, so `--status` found no host. It is now `findAiBaseWeb() || findAiBaseDesktop()`.
+
+
 # 1.2.4
 
 ## 中文
