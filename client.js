@@ -129,17 +129,6 @@ window.__ModuleLoader__.load({ id: "dsh-purge-fork", factory: (require) => {
 
 		const zh = {
 			panel: "清洗",
-			"welcome.title": "用户须知",
-			"welcome.lead": "首次安装本插件时请阅读以下说明。确认后本窗不再弹出。",
-			"welcome.warn": "本插件免费开源。任何背着作者私自售卖、付费倒卖或借本项目盈利的行为，作者将依法追究法律责任。",
-			"welcome.body": "dsh-purge-fork 是 DeepSeek Harness 的本机网络安全评测与清洗插件：在你有权管理的本机环境里调整提示词与补丁。项目免费、非营利，源码仓库：",
-			"welcome.repo": "https://github.com/P4rfa1t/dsh-purge-fork",
-			"welcome.ban1": "禁止将本项目用于未授权的网络攻击、入侵、窃取数据、破坏系统或任何违法犯罪。",
-			"welcome.ban2": "禁止商业售卖、付费倒卖、黑灰产牟利，以及隐瞒作者的营利性再分发。",
-			"welcome.ban3": "使用者须自行遵守所在地法律法规与平台规范；违法后果由行为人自行承担，与作者无关。",
-			"welcome.bans": "禁止事项",
-			"welcome.check": "我已阅读并理解上述用户须知，同意合法合规使用。",
-			"welcome.ok": "我已知晓并继续",
 			"theme.aria": "外观",
 			"theme.white": "白",
 			"theme.ink": "墨",
@@ -343,7 +332,6 @@ window.__ModuleLoader__.load({ id: "dsh-purge-fork", factory: (require) => {
 			"patch.26": "minimal：去掉默认身份并打开 inject",
 			"patch.28": "dsh-liangshen（梁神）：phase-1 保留 dsh-purge / dshpg 段",
 			"patch.70": "极简模式终端不再禁止网络",
-			"patch.71": "梁神去掉官方身份句",
 			"patch.29": "dsh-tool-web：外部 untrusted 拦截→可执行",
 			"patch.30": "dsh-hooks-claude-code：deny→allow",
 			"patch.31": "dsh-hooks-codex：deny→allow",
@@ -367,36 +355,29 @@ window.__ModuleLoader__.load({ id: "dsh-purge-fork", factory: (require) => {
 			"patch.51": "新会话保持完全权限",
 			"patch.52": "会话日志默认不上传",
 			"patch.53": "网页提示去掉禁止另开服务器",
-			"patch.54": "交付物提示去掉多余禁止",
 			"patch.55": "每一步替换第一条系统提示",
 			"patch.56": "回退只藏被撤掉的那一轮",
 			"patch.57": "developer role 仅限 openai/azure，第三方代理回退 system",
 			"patch.58": "回退空标记不进模型请求",
 			"patch.59": "官方 Auto Review 不再拦工具",
-			"patch.60": "官方 run_code 去掉审批教学",
 			"patch.61": "官方沙箱策略不再教拒绝",
 			"patch.62": "无审批通道时放行（用户拒绝仍有效）",
 			"patch.63": "计划模式不再软拦执行",
 			"patch.64": "Stop hook 不再注入假用户话",
 			"patch.65": "UserPromptSubmit deny 不再整轮 reject",
 			"patch.66": "空的系统段不再把这一轮打成内部错误",
-			"patch.67": "缺 messages 时这一轮不中断",
 			"patch.68": "回退后缺 content 不中断",
 			"patch.69": "deepseek-flash 保持官方 in-history",
 			"patch.72": "Messages 的 system 用当前系统提示",
 			"patch.73": "极简 bash 去掉误留的镜像说明",
-			"patch.74": "启动/应用把默认提示词写入 prompt-inject.md",
 			"patch.75": "回退把已完成任务收回成未开始",
 			"patch.77": "回退标记到达时丢弃已发送消息",
 			"patch.78": "补丁文件缺失时从 .bak 恢复",
 			"patch.80": "恢复官方极简工具表",
-			"patch.82": "主进程兜底 DSH_PROFILE=desktop",
 			"patch.83": "host 信号杀时不报错不弹对话框",
 			"patch.84": "host code=0 正常退出不报错 (消除 stopped 对话框)",
 			"patch.85": "prompt() 的 steer 仍走插话，不压成 followup",
 			"patch.86": "队列插话走 steer；公共 steer() 保持下一步",
-			"patch.87": "首次 assemble 用 prepare 返回的当前模式 systemPrompt",
-			"patch.88": "去掉 renderPrompt 后的挂针，注入只走 assemble",
 			"status.unlocated": "未定位",
 			"status.na": "本端不需要",
 			"metric.unlocated": "还没定位到本机 Harness",
@@ -435,17 +416,6 @@ window.__ModuleLoader__.load({ id: "dsh-purge-fork", factory: (require) => {
 
 		const en = {
 			panel: "Purge",
-			"welcome.title": "User notice",
-			"welcome.lead": "Please read this on first install. After you confirm, it will not appear again.",
-			"welcome.warn": "This plugin is free and open source. Anyone who sells, resells, or profits from it behind the author's back may face legal action.",
-			"welcome.body": "dsh-purge-fork is a local DeepSeek Harness plugin for security evaluation and cleaning: adjust prompts and patches on a machine you control. It is free and non-profit. Repository:",
-			"welcome.repo": "https://github.com/P4rfa1t/dsh-purge-fork",
-			"welcome.ban1": "Do not use this project for unauthorized attacks, intrusion, data theft, sabotage, or any illegal activity.",
-			"welcome.ban2": "Do not commercially sell, resell, or profit from gray-market use, or redistribute for profit without the author.",
-			"welcome.ban3": "You must follow local law and platform rules; illegal use is solely your responsibility.",
-			"welcome.bans": "Prohibitions",
-			"welcome.check": "I have read and understand this notice and will use the plugin lawfully.",
-			"welcome.ok": "I understand — continue",
 			"theme.aria": "Appearance",
 			"theme.white": "Light",
 			"theme.ink": "Ink",
@@ -649,7 +619,6 @@ window.__ModuleLoader__.load({ id: "dsh-purge-fork", factory: (require) => {
 			"patch.26": "minimal: strip identity, open inject",
 			"patch.28": "dsh-liangshen: keep dsh-purge / dshpg in phase-1",
 			"patch.70": "Minimal shell drops the no-network line",
-			"patch.71": "Liangshen drops the stock identity line",
 			"patch.29": "dsh-tool-web: untrusted framing → usable data",
 			"patch.30": "dsh-hooks-claude-code: deny→allow",
 			"patch.31": "dsh-hooks-codex: deny→allow",
@@ -673,36 +642,29 @@ window.__ModuleLoader__.load({ id: "dsh-purge-fork", factory: (require) => {
 			"patch.51": "Fresh session stays on full access",
 			"patch.52": "Session log upload off by default",
 			"patch.53": "Web prompt drops do-not-start",
-			"patch.54": "Deliverable prompt drops extra prohibition",
 			"patch.55": "Replace the first system prompt every step",
 			"patch.56": "Rewind hides only the cut range",
 			"patch.57": "developer role for openai/azure only, third-party gateways use system",
 			"patch.58": "Rewind markers stay off the model request",
 			"patch.59": "Official Auto Review no longer denies tools",
-			"patch.60": "Official run_code drops approval teaching",
 			"patch.61": "Official sandbox policy no longer teaches refusal",
 			"patch.62": "Fail-open without approval channel (user reject kept)",
 			"patch.63": "Plan mode no longer soft-blocks execution",
 			"patch.64": "Stop hook no longer steers fake user text",
 			"patch.65": "UserPromptSubmit deny no longer rejects turn",
 			"patch.66": "Empty system section no longer ends the turn as an internal error",
-			"patch.67": "A missing messages list no longer ends the turn",
 			"patch.68": "Missing content after rewind no longer ends the turn",
 			"patch.69": "deepseek-flash keeps the official in-history flag",
 			"patch.72": "Messages system field uses the current system prompt",
 			"patch.73": "Minimal preset drops stray mirror sentence",
-			"patch.74": "Start/apply writes the default prompt to prompt-inject.md",
 			"patch.75": "Rewind resets completed todos to pending",
 			"patch.77": "Rewind marker drops already-sent messages",
 			"patch.78": "Restore missing overlay from .bak backup",
 			"patch.80": "Restore official minimal tool plugins",
-			"patch.82": "Fallback DSH_PROFILE=desktop in main process",
 			"patch.83": "Don't fail on signal kill (no crash dialog)",
 			"patch.84": "Don't fail on code=0 clean exit (no stopped dialog)",
 			"patch.85": "prompt() steer stays interrupt, not followup",
 			"patch.86": "Queue steer stays steer; public steer() stays next-step",
-			"patch.87": "First assemble uses the systemPrompt prepare returned",
-			"patch.88": "Drop the hang after renderPrompt; inject is assemble only",
 			"status.na": "Not for this host",
 			"metric.sealed": "Official client found. Apply to unpack",
 			"metric.sealed.count": "Sealed",
@@ -881,26 +843,6 @@ body[data-ds-dark-theme] .dshp-restart-card .dshp-btn-primary,body[data-ds-dark-
 @media (max-width:640px){.dshp-metrics{grid-template-columns:1fr}.dshp-ruleitem{flex-wrap:wrap}.dshp-rule-ops{width:100%;justify-content:flex-end}}
 @media (prefers-reduced-motion:reduce){.dshp-btn,.dshp-bar>i{transition:none}.dshp-skel{animation:none}}
 
-body:not([data-ds-dark-theme]) .dshp-auth-modal{background:color-mix(in srgb,var(--dsw-alias-bg-layer-1,#fffcf7) 92%,transparent);color:var(--dsw-alias-label-primary,#1a1916);border-color:color-mix(in srgb,var(--dsw-alias-border-l1,#c9c3b6) 80%,transparent);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3)}
-body:not([data-ds-dark-theme]) .dshp-auth-legal{background:color-mix(in srgb,var(--dsw-alias-bg-layer-2,#f3f0e8) 90%,transparent);color:var(--dsw-alias-label-primary,#1a1916);border-color:color-mix(in srgb,var(--dsw-alias-border-l1,#c9c3b6) 80%,transparent)}
-body:not([data-ds-dark-theme]) .dshp-auth-warn{background:color-mix(in srgb,#f5e6c8 88%,transparent);color:#6b4a10}
-body:not([data-ds-dark-theme]) .dshp-auth-ops button{border-color:var(--dsw-alias-border-l1,#c9c3b6);color:var(--dsw-alias-label-primary,#1a1916);background:color-mix(in srgb,var(--dsw-alias-bg-layer-1,#fff) 88%,transparent)}
-body:not([data-ds-dark-theme]) .dshp-auth-ops button.primary{background:var(--dsw-alias-brand-primary,#3f6b52);border-color:var(--dsw-alias-brand-primary,#3f6b52);color:#fff}
-.dshp-auth-mask{position:fixed;inset:0;z-index:10100;background:rgba(0,0,0,.62);display:flex;align-items:center;justify-content:center;padding:20px;pointer-events:auto}
-.dshp-env-gate{z-index:10200}
-.dshp-auth-modal{width:min(680px,100%);max-height:min(88vh,820px);display:flex;flex-direction:column;gap:10px;padding:16px;border:1px solid var(--dsw-alias-border-l1,#333);border-radius:12px;background:var(--dsw-alias-bg-layer-1,#1a1a1a);color:var(--dsw-alias-label-primary,#eee)}
-.dshp-auth-modal h2{margin:0;font-size:16px;font-weight:600}
-.dshp-auth-warn{padding:8px 10px;border-radius:8px;background:#3a2e18;color:#f0d48a;font-size:13px}
-.dshp-auth-legal{overflow:auto;height:300px;margin:0;padding:10px 12px;border:1px solid var(--dsw-alias-border-l1,#333);border-radius:8px;background:#121212;font-size:13px;line-height:1.55}
-.dshp-auth-legal h3{margin:14px 0 4px;font-size:13px}
-.dshp-auth-legal h3:first-child{margin-top:0}
-.dshp-auth-legal p{margin:0 0 8px}
-.dshp-auth-checks{display:flex;flex-direction:column;gap:8px;font-size:13px}
-.dshp-auth-checks label{display:flex;gap:8px;align-items:flex-start}
-.dshp-auth-checks label.locked{opacity:.45}
-.dshp-auth-ops{display:flex;justify-content:flex-end;gap:8px}
-.dshp-auth-ops button.primary{background:#2a4033;border-color:#8fbf9a}
-.dshp-auth-ops button:disabled{opacity:.45;cursor:default}
 .dshp-icon-btn{appearance:none;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 10px;border:1px solid color-mix(in srgb,var(--dsw-alias-brand-primary,#6dbf8c) 45%,transparent);border-radius:8px;background:transparent;color:var(--dsw-alias-label-secondary,currentColor);cursor:pointer;font:13px/1 inherit;white-space:nowrap;flex:0 0 auto}
 .dshp-icon-btn:hover{border-color:var(--dsw-alias-brand-primary,#6dbf8c);background:color-mix(in srgb,var(--dsw-alias-brand-primary,#6dbf8c) 12%,transparent);color:var(--dsw-alias-label-primary,currentColor)}
 .dshp-icon-btn.on{border-color:var(--dsw-alias-brand-primary,#6dbf8c);color:var(--dsw-alias-brand-primary,#6dbf8c);background:color-mix(in srgb,var(--dsw-alias-brand-primary,#6dbf8c) 16%,transparent);box-shadow:0 0 0 1px color-mix(in srgb,var(--dsw-alias-brand-primary,#6dbf8c) 28%,transparent)}
@@ -3341,75 +3283,6 @@ body[data-ds-dark-theme] .dshp-rewind-item span{color:var(--dsw-alias-label-tert
 			return () => window.clearInterval(timer);
 		}
 
-		const WELCOME_KEY = "dsh-purge-fork-user-notice-v1";
-
-		function readWelcomeAck() {
-			try { return window.localStorage.getItem(WELCOME_KEY) === "1"; } catch { return false; }
-		}
-		function writeWelcomeAck() {
-			try { window.localStorage.setItem(WELCOME_KEY, "1"); } catch { /* ignore */ }
-		}
-
-
-		function WelcomeNotice() {
-			const t = useT();
-			const [open, setOpen] = useState(() => !readWelcomeAck());
-			const [checked, setChecked] = useState(false);
-			if (!open) return null;
-			const repo = t("welcome.repo");
-			const node = h("div", { className: "dshp-auth-mask", role: "dialog", "aria-modal": "true" },
-				h("div", { className: "dshp-auth-modal", style: { width: "min(560px,100%)" } },
-					h("h2", null, t("welcome.title")),
-					h("div", { className: "muted", style: { color: "var(--dsw-alias-label-secondary,#999)", fontSize: 12 } }, t("welcome.lead")),
-					h("div", { className: "dshp-auth-warn" }, t("welcome.warn")),
-					h("div", { className: "dshp-auth-legal", style: { height: "auto", maxHeight: 280 } },
-						h("p", null, t("welcome.body")),
-						h("p", null,
-							h("a", {
-								href: repo,
-								target: "_blank",
-								rel: "noopener noreferrer",
-								style: { color: "var(--dsw-alias-label-brand, #8fbf9a)", wordBreak: "break-all" },
-							}, repo),
-						),
-						h("h3", null, t("welcome.bans")),
-						h("p", null, t("welcome.ban1")),
-						h("p", null, t("welcome.ban2")),
-						h("p", null, t("welcome.ban3")),
-					),
-					h("div", { className: "dshp-auth-checks" },
-						h("label", null,
-							h("input", {
-								type: "checkbox",
-								checked: checked,
-								onChange: (e) => setChecked(!!(e && e.target && e.target.checked)),
-							}),
-							h("span", null, t("welcome.check")),
-						),
-					),
-					h("div", { className: "dshp-auth-ops" },
-						h("button", {
-							type: "button",
-							className: "primary",
-							disabled: !checked,
-							onClick: () => {
-								if (!checked) return;
-								writeWelcomeAck();
-								setOpen(false);
-							},
-						}, t("welcome.ok")),
-					),
-				),
-			);
-			try {
-				const rd = require("react-dom");
-				if (rd && typeof rd.createPortal === "function" && typeof document !== "undefined" && document.body) {
-					return rd.createPortal(node, document.body);
-				}
-			} catch { /* ignore */ }
-			return node;
-		}
-
 		function readSessionCwd(sess) {
 			if (!sess || typeof sess !== "object") return "";
 			try {
@@ -3497,11 +3370,7 @@ body[data-ds-dark-theme] .dshp-rewind-item span{color:var(--dsw-alias-label-tert
 				locale: NS,
 				inject: () => ({ t }),
 			}, PurgePage));
-			ctx.slots.inject("shell.overlay", () => ctx.slots.register({
-				name: "shell.overlay",
-				id: "dsh-purge-fork-dock",
-				order: 50,
-			}, () => h(react.Fragment, null, h(WelcomeNotice))));
+
 			try {
 				if (typeof ctx.inject === "function") {
 					ctx.inject(["sessions", "uiWorkspace", "workspaces", "conversation"], (host) => installRewindUi(host));

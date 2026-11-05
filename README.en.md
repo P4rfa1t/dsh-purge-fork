@@ -65,7 +65,7 @@ This plugin only touches the **official packages and local configuration already
 
 | Capability | Details |
 | --- | --- |
-| **84 host patches** | Prompt disclaimers/strong instructions, approval sentences and approval policy, hooks deny/steer, desktop update hand-off, host exit no longer showing an error dialog — grouped, and groups can be toggled as a whole |
+| **76 host patches** | Prompt disclaimers/strong instructions, approval sentences and approval policy, hooks deny/steer, desktop update hand-off, host exit no longer showing an error dialog — grouped, and groups can be toggled as a whole |
 | **Prompt injection** | Writes `$DSH_HOME/prompt-inject.md`; editable, and restorable to the plugin's built-in encrypted default in one click |
 | **Rule sets** | Multiple rule sets managed by id: activate / create / delete / reset. Activating writes `AGENTS.md` / `CLAUDE.md` and feeds the injection decision |
 | **Official Skill management** | Operates directly on `$DSH_HOME/skills`: list, import an archive or folder, create, delete |
@@ -108,7 +108,6 @@ This repository is **not** a mirror or a straight sync of upstream. It is a deli
 
 - **"Clean" glyph in the left sidebar**: opens the full panel — patch groups, prompt injection, rule sets, Skills, hooks bypass, retry/continue, update channel.
 - **Next to the composer**: rewind once / rewind previous turn, plus the continue button.
-- **Session opening notice**: a one-time notice with a compliance check.
 
 > There is **no floating ball** in the bottom-right corner (removed in 1.2.0), and **no "Clean" pill** next to the hero row on the home screen (removed in 1.2.2).
 
